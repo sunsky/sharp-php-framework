@@ -1,0 +1,74 @@
+<h1>Hello world!--页面</h1>
+<pre>
+<strong>$view:</strong>
+System\View\View Object
+(
+    [_controller:protected] => default
+    [_action:protected] => index
+    [_viewPath:protected] => /var/www/mini-php-framework/trunk/source/Apps/Demo/Views/Default/Index.php
+    [_viewDir:protected] => Views
+    [_layout:protected] => System\View\Helper\Layout Object
+        (
+            [_layoutFile:protected] => /var/www/mini-php-framework/trunk/source/Apps/Demo/Layouts/Main.php
+            [view:protected] => System\View\View Object
+ *RECURSION*
+        )
+
+    [content] => 
+    [_config] => Array
+        (
+            [router] => Array
+                (
+                    [layoutDirPath] => /var/www/mini-php-framework/trunk/source/Apps/Demo/Layouts
+                )
+
+        )
+
+    [title] => Hello world!
+    [name] => Hello world!--页面
+)
+</pre>
+
+<strong><a href="http://mini-php-framework.com/?_a=show">跳转到Show页面</a></strong>
+
+<pre>
+<strong>配置:</strong>
+Array
+(
+    [version] => 2.0 Beta
+    [app_name] => 精简PHP框架(linux php-fpm(php5.4) nginx mysqli)
+    [router] => Array
+        (
+            [controllerDir] => Controllers
+            [viewDir] => Views
+            [controllerPrefix] => _c
+            [actionPrefix] => _a
+            [defaultController] => default
+            [defaultAction] => index
+            [controllerClassSuffix] => Controller
+            [actionClassSuffix] => Action
+            [layoutDirPath] => /var/www/mini-php-framework/trunk/source/Apps/Demo/Layouts
+        )
+
+    [exception] => Array
+        (
+            [exceptionHandler] => Demo\Modules\Event\ExceptionHandler
+            [eventHandler] => Demo\Modules\Event\Handler
+        )
+
+    [log] => Array
+        (
+            [logPath] => /var/tmp/Demo.log
+            [mailAddr] => sunsky303@qq.com
+        )
+
+    [cache] => Array
+        (
+            [cacheDir] => /var/www/mini-php-framework/trunk/source/Data/Cache/Demo
+            [cachePrefix] => html_
+            [cacheExpire] => -1
+            [cacheMode] => 3
+        )
+
+)
+</pre>

@@ -11,6 +11,7 @@
  */
 namespace System\View;
 use System\View\Exception;
+use System\Storage\Register;
 /**
  * view
  * 
@@ -41,14 +42,13 @@ class View {
 	}
 	
 	public function assign($key,$value){
-		if(!$key) throw new Exception\ViewException('param key can not be empty!');
+		if(!$key) throw new  Exception\InvalidArgsException('param key can not be empty!');
 		$this->$key = $value;
 	}
 
 	public function run(){
 		$fileId = rtrim(str_replace(array(APP_PATH.'/','/'), array('','_'), $this->_viewPath), '.php');
-		$cache = \System\Application\Register::getCache();
-		
+		$cache = Register::getCache();
 		if($cache && null == $this->_layout){
 			if($cache->hasCache($fileId)){
 				echo $cache->get($fileId);
@@ -69,6 +69,7 @@ class View {
 		if($cache){
 			$cache->set($fileId, $output);
 		}
+		
 		if(null != $this->_layout) {
 			$this->content = $output;
 			$this->_layout->run();

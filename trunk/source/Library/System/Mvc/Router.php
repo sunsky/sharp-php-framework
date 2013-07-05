@@ -10,8 +10,11 @@
  * @link https://mini-php-framework.googlecode.com/
  * @version $Id: Router.php 17 2013-06-30 09:05:47Z sunsky303 $
  */
-namespace System\Url;
-use \System\Controller\Exception;
+namespace System\Mvc;
+use System\Controller\Exception;
+use System\Storage\Register;
+use System\InvalidClassException;
+use System\Controller\Exception\PageNotFoundException;
 /**
  * 路由类
  * @author wuqj <sunsky303@gmail.com>
@@ -32,7 +35,7 @@ class Router {
 	 * @param array $config        	
 	 */
 	function __construct() {
-		$config = \System\Application\Register::getConfig();
+		$config = Register::getConfig();
 		$this->_className = str_replace ( array (
 				__NAMESPACE__,
 				'\\' 
@@ -54,12 +57,12 @@ class Router {
 		$controllerClass =  $this->getClassByController ($this->_controller) ;
 		try{
 			$this->_controllerInstance = new $controllerClass($this->_controller, $this->_action);
-		}catch (\System\InvalidClassException $ex){
-			throw new Exception\PageNotFoundException( $ex->getMessage(), $ex->getCode());
+		}catch (InvalidClassException $ex){
+			throw new PageNotFoundException ( $ex->getMessage(), $ex->getCode());
 		}
 		$method = $this->getMethodByAction($this->_action);
 		if(!method_exists($this->_controllerInstance, $method)){
-			throw new Exception\PageNotFoundException( sprintf('method %s of class %s is not found in %s:%u', $method, $className,\System\Event\Error\Handler::getRelativePath(__FILE__)  ,__LINE__));
+			throw new PageNotFoundException( sprintf('method %s of class %s is not found in %s:%u', $method, $controllerClass,  \System\Event\Error\Handler::getRelativePath(__FILE__)  ,__LINE__));
 			exit(-1);
 		}
 		$this->_controllerInstance->before();
@@ -69,7 +72,7 @@ class Router {
 			throw new Exception\ParseFailedException();
 		}
 		$this->_controllerInstance->after();
-		$this->_controllerInstance->runView();
+		$this->_controllerInstance->getView()->run();
 		
 		
 	}

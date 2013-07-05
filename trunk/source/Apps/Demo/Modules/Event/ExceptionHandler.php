@@ -10,7 +10,7 @@
  * @version $Id$
  */
 namespace Demo\Modules\Event;
-use System\Event as Event;
+use System\Event\Exception\Handler;
 
 /**
  * exception
@@ -19,12 +19,6 @@ use System\Event as Event;
  * @copyright Copyright 2012-2013
  * @link https://mini-php-framework.googlecode.com/
  */
-class ExceptionHandler extends \System\Event\Exception\Handler {
-	/**
-	 * @param Exception $exception
-	 */
-// 	public function exceptionHandler(\Exception $e) {
-// 		parent::exceptionHandler($e);
-// 	}	
+class ExceptionHandler extends Handler {
 }
 

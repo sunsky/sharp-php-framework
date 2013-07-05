@@ -14,8 +14,9 @@
  * @version $Id: Bootstrap.php 15 2013-05-17 01:36:13Z sunsky303 $
  +----------------------------------------------------------
  */
-namespace System\Application;
+namespace System\Mvc;
 
+use System\Mvc\BootstrapAbstract;
 /**
  * 启动文件
  * 
@@ -25,7 +26,7 @@ namespace System\Application;
  * @copyright Copyright 2012-2013
  * @link https://mini-php-framework.googlecode.com/
  */
-class Bootstrap extends BootstrapAbstract {
+class Bootstrap extends BootstrapAbstract{
 	public static $filename = 'Bootstrap.php';
 	public static $classname = 'Bootstrap';
 	protected $_autoExecuteMethodPrefix = '_init';

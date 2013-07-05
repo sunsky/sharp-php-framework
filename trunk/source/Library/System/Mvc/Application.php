@@ -14,8 +14,11 @@
  * @version $Id: Application.php 17 2013-06-30 09:05:47Z sunsky303 $
  +----------------------------------------------------------
  */
-namespace System;
+namespace System\Mvc;
 
+use System\Loader;
+use System\Mvc\Bootstrap;
+use System\Mvc\Router;
 /**
  * Application run
  * 
@@ -38,16 +41,14 @@ class Application {
 		
 	}
 	public static function  initLoader(){
-		require ROOT_PATH . '/Library/System/Loader.php';
-		\System\Loader::initLoader();
+		require ROOT_PATH . '/Library/System/Loader/Loader.php';
+		Loader::initLoader();
 	}
 	public static function  run($runEnvironment,$config){
 		$self = self::getApp($runEnvironment, $config);
-		$clz = '\System\Url\Router';
 		$self->_bootstrap();
 		
-		\System\Url\Router::getInstance($config)->dispatch();
-		
+		Router::getInstance($config)->dispatch();
 	}
 
 	/**
@@ -64,14 +65,13 @@ class Application {
 	 * bootstrap
 	 */
 	protected function _bootstrap(){
-		$_bootstrapFile = APP_PATH . DIRECTORY_SEPARATOR . \System\Application\Bootstrap::$filename;
-	
+		$_bootstrapFile = APP_PATH . DIRECTORY_SEPARATOR . Bootstrap::$filename;
 		if(file_exists($_bootstrapFile)){
 			require $_bootstrapFile;
-			\System\Application\Bootstrap::$classname = '\\'. APP_DIR .'\\Bootstrap';
-			if(class_exists(\System\Application\Bootstrap::$classname, false)){
-				$_bootstrap = new \System\Application\Bootstrap::$classname($this->_config);
-				if(!$_bootstrap instanceof  \System\Application\Bootstrap){
+			Bootstrap::$classname = '\\'. APP_DIR .'\\Bootstrap';
+			if(class_exists(Bootstrap::$classname, false)){
+				$_bootstrap = new Bootstrap::$classname($this->_config);
+				if(!$_bootstrap instanceof  Bootstrap){
 					throw new \System\Event\Exception\Exception();
 				}
 			}

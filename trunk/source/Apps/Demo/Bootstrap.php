@@ -17,6 +17,7 @@
  */
 namespace Demo;
 
+use System\Storage\Register;
 /**
  * 启动
  *
@@ -26,12 +27,12 @@ namespace Demo;
  * @copyright Copyright 2012-2013
  * @link https://mini-php-framework.googlecode.com/
  */
-class Bootstrap extends \System\Application\Bootstrap {
+class Bootstrap extends \System\Mvc\Bootstrap {
 	protected function _initRegister() {
-		\System\Application\Register::setConfig ( $this->_config );
+		Register::setConfig ( $this->_config );
 	}
 	protected function _initCache() {
-		\System\Application\Register::setCache ( new Modules\Cache\HtmlCache ( $this->_config ['cache'] ['cacheDir'], $this->_config ['cache'] ['cachePrefix'], $this->_config ['cache'] ['cacheExpire'], $this->_config ['cache'] ['cacheMode'], '.html' ) );
+		Register::setCache ( new Modules\Cache\HtmlCache ( $this->_config ['cache'] ['cacheDir'], $this->_config ['cache'] ['cachePrefix'], $this->_config ['cache'] ['cacheExpire'], $this->_config ['cache'] ['cacheMode'], '.html' ) );
 	}
 }
 

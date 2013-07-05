@@ -7,7 +7,7 @@
 </pre>
 <img src="Assets/image/hello_world.png" />
 <br/>
-<strong><a href="http://mini-php-framework.com/?_a=show">跳转到Show页面</a></strong>
+<strong><a href="?_a=show">跳转到Show页面</a></strong>
 
 <pre>
 <!-- <strong>配置:</strong> -->

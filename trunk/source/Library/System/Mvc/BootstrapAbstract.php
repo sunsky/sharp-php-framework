@@ -9,7 +9,7 @@
  * @link https://mini-php-framework.googlecode.com/
  * @version $Id: BootstrapAbstract.php 13 2013-05-15 10:55:20Z sunsky303 $
  */
-namespace System\Application;
+namespace System\Mvc;
 
 /**
  * 启动类

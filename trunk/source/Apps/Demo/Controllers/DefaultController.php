@@ -1,5 +1,6 @@
 <?php
 namespace Demo\Controllers;
+use System\Storage\Register;
 /**
  * @author wuqj
  *        

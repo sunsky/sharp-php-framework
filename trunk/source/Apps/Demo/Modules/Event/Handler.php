@@ -11,7 +11,8 @@
  * @version $Id$
  */
 namespace Demo\Modules\Event;
-use \System\Event\Error as ERR;
+use System\Storage\Register;
+use System\Http\Request\Request;
 /**
  * exception
  *
@@ -27,9 +28,9 @@ class Handler extends \System\Event\Error\Handler {
 		reset($this->_msgStack);
 		if (0 == error_reporting () || APP_ENV == APP_ENV_PRODUCTION) {
 			$errType = isset($lastErr['type']) && is_array($lastErr['type']) ? $lastErr['type'][0] : $lastErr['type'];
-			if($errType == in_array($errType, array(ERR\Handler::getErrTypeName(ERR\Handler::ERROR_TYPE_FATAL), ERR\Handler::ERR_TYPE_EXCEPTION ))){
-				$config = \System\Application\Register::getConfig ();
-				\System\Url\Http\Request\Request::redirect ( '?' . http_build_query ( array (
+			if($errType == in_array($errType, array(System\Event\Error\Handler::getErrTypeName(System\Event\Error\Handler::ERROR_TYPE_FATAL), System\Event\Error\Handler::ERR_TYPE_EXCEPTION ))){
+				$config = Register::getConfig ();
+				Request::redirect ( '?' . http_build_query ( array (
 						$config ['router'] ['controllerPrefix'] => 'error',
 						$config ['router'] ['actionPrefix'] => 'parseFailed',
 						'content' => $errType,

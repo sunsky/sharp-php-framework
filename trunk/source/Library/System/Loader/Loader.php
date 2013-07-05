@@ -67,8 +67,8 @@ final class Loader {
 	
 	
 }
-require 'Event/Exception/Exception.php';
-class InvalidClassException extends Event\Exception\Exception{
+require 'System/Event/Exception/Exception.php';
+class InvalidClassException extends \System\Event\Exception\Exception{
 }
 
 

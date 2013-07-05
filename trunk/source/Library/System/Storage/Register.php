@@ -12,7 +12,7 @@
  * @version $Id: Register.php 15 2013-05-17 01:36:13Z sunsky303 $
  +----------------------------------------------------------
  */
-namespace System\Application;
+namespace System\Storage;
 /**
  * 注册类
  * 
@@ -27,6 +27,10 @@ class Register extends \ArrayObject {
 	protected $_conf;
 	protected $_cache;
 	
+	public static function __callstatic(){
+		var_dump(func_get_args());
+	}
+
 	public static function getInstance(){
 		if(!static::$_instance)
 			static::$_instance = new static();

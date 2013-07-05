@@ -13,6 +13,7 @@
 namespace System\Event\Error;
 
 use System\Event as Event;
+use System\Storage\Register;
 
 /**
  * exception
@@ -167,7 +168,7 @@ class Handler implements Event\EventInterface, Event\ListenerInterface {
 		echo $table;
 	}
 	public function eventLog() {
-		$config = \Demo\Modules\App\Register::getConfig ();
+		$config = Register::getConfig ();
 		if (! isset ( $config ['log'] ))
 			return;
 		$logPath = isset ( $config ['log'] ['logPath'] ) ? $config ['log'] ['logPath'] : '/var/log/' . APP_DIR . '.log';
@@ -177,6 +178,7 @@ class Handler implements Event\EventInterface, Event\ListenerInterface {
 		$logStr = '';
 		foreach ( $stack as $k => $v ) {
 			array_unshift ( $v, '<b>$s</b> [%d] %s on line <b>%s</b> in file <b>%s</b><br/>' );
+			if(is_array($v)) continue;
 			$logStr .= call_user_func ( 'sprintf', $v );
 		}
 		$logStr .= PHP_EOL;

@@ -31,22 +31,16 @@ class Controller {
 	 * @param string $action
 	 */
 	function __construct($controller, $action) {
-		$this->_config = \System\Application\Register::getConfig();
+		$this->_config = \System\Storage\Register::getConfig();
 		$this->_controller = $controller;
 		$this->_action = $action;
 		$this->_controllerDir = $this->_config['router']['controllerDir'];
 		$this->view = new \System\View\View($this->_controller, $this->_action, $this->_config['router']['viewDir']);
 	}
 	
-	/**
-	 * @param string $viewDir
-	 * @return \System\Controller\Controller
-	 */
-	final public function runView(){
-		$this->view->run();
-		return $this;
+	public function getView(){
+		return $this->view;
 	}
-	
 	public function before(){
 	}
 	

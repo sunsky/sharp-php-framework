@@ -5,12 +5,12 @@
  *
  * @author wuqj <sunsky303@gmail.com>
  * @category System
- * @package System\Url
+ * @package System\Http
  * @copyright Copyright 2012-2013
  * @link https://mini-php-framework.googlecode.com/
  * @version $Id$
  */
-namespace System\Url\Http\Request;
+namespace System\Http\Request;
 
 /**
  *

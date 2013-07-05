@@ -16,15 +16,7 @@ namespace System\Controller\Exception;
  * @author wuqj
  *        
  */
-class PageNotFoundException extends  \System\InvalidClassException {
-// 	public function __construct($message = null, $code = null, $previous = null){
-// 		$controller = 'error';$action = 'pageNotFound';
-// 		$router = \System\Url\Router::getInstance();
-// 		$router->dispatch($controller,$action, func_get_args());die;
-// 		\System\Url\Http\Request\Request::redirect('/error/pageNotFound');
-// 		exit(-1);
-// 	}
-	
+class PageNotFoundException extends \System\Event\Exception\Exception {
 }
 
 ?>

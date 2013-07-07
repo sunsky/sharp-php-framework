@@ -12,7 +12,6 @@
 <pre>
 <!-- <strong>配置:</strong> -->
 <?php 
-// print_r(\System\Application\Register::getConfig());
 echo $aa;
 echo $ab;
 // notDefinedFunc();

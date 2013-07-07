@@ -12,9 +12,9 @@
  */
 namespace System\Mvc;
 use System\Controller\Exception;
-use System\Storage\Register;
 use System\InvalidClassException;
 use System\Controller\Exception\PageNotFoundException;
+use System\Storage\ConfigRegister;
 /**
  * 路由类
  * @author wuqj <sunsky303@gmail.com>
@@ -35,7 +35,7 @@ class Router {
 	 * @param array $config        	
 	 */
 	function __construct() {
-		$config = Register::getConfig();
+		$config = ConfigRegister::getConfig();
 		$this->_className = str_replace ( array (
 				__NAMESPACE__,
 				'\\' 

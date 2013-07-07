@@ -11,6 +11,7 @@
  */
 namespace System\Controller;
 
+use System\Storage\ConfigRegister;
 /**
  * Controller
  * 
@@ -31,7 +32,7 @@ class Controller {
 	 * @param string $action
 	 */
 	function __construct($controller, $action) {
-		$this->_config = \System\Storage\Register::getConfig();
+		$this->_config = \System\Storage\ConfigRegister::getConfig();
 		$this->_controller = $controller;
 		$this->_action = $action;
 		$this->_controllerDir = $this->_config['router']['controllerDir'];

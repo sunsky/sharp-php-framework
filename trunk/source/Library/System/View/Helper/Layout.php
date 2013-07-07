@@ -11,9 +11,9 @@
  */
 
 namespace System\View\Helper;
-use System\View\Exception;
-use System\Storage\Register;
 use System\View\View;
+use System\Storage\ConfigRegister;
+use System\Storage\CacheRegister;
 /**
  * 布局类
  * @author wuqj <sunsky303@gmail.com>
@@ -32,13 +32,13 @@ class Layout {
 	public function __construct($layoutFile,  View $view){
 		$this->view = $view;
 		$this->_layoutFile = $layoutFile;
-		$config = Register::getConfig();
+		$config = ConfigRegister::getConfig();
 		$this->dir = $config['router']['layoutDirPath'];
 	}
 	
 	public function run(){
 		$fileId = 'layout_'. rtrim(str_replace(array(APP_PATH.'/','/'), array('','_'), $this->view->getViewPath()), '.php');
-		$cache = Register::getCache();
+		$cache = CacheRegister::getCache();
 		
 		if($cache){
 			if($cache->hasCache($fileId)){

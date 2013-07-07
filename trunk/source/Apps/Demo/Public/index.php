@@ -16,7 +16,7 @@
 // Define path to application directory
 defined ( 'APP_PATH' ) || define ( 'APP_PATH', dirname(__DIR__));
 
-$__CONF__ = require APP_PATH  . '/Config/app.inc.php';
+$__CONF__ = require APP_PATH  . '/Config/demo.inc.php';
 require 'System/Mvc/Application.php';
 
 \System\Mvc\Application::run(APP_ENV, $__CONF__);

@@ -24,11 +24,22 @@ namespace System\Storage;
  */
 class Register extends \ArrayObject {
 	protected static $_instance;
-	protected $_conf;
-	protected $_cache;
 	
-	public static function __callstatic(){
-		var_dump(func_get_args());
+	/**
+	 * @param string $name
+	 * @param mix $args
+	 * @return mix
+	 */
+	public static function __callstatic($name, $args){
+		$instance = static::getInstance();
+		$name = strtolower($name);
+		if(property_exists($instance, $name) && empty($args)){//get
+			return $instance->$name;
+		}
+		if(!empty($args)){//set
+			$instance->$name = $args[0];
+		}
+		return ;
 	}
 
 	public static function getInstance(){
@@ -36,25 +47,7 @@ class Register extends \ArrayObject {
 			static::$_instance = new static();
 		return static::$_instance;
 	}
+
 	
-	
-	public static function setConfig($conf){
-		$instance = static::getInstance();
-		$instance->_conf = $conf;
-		return $instance;
-	}
-	public static function getConfig(){
-		$instance = static::getInstance();
-		return $instance->_conf;
-	}	
-	public static function setCache($cache){
-		$instance = static::getInstance();
-		$instance->_cache = $cache;
-		return $instance;
-	}
-	public static function getCache(){
-		$instance = static::getInstance();
-		return $instance->_cache;
-	}	
 }
 

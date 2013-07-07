@@ -17,7 +17,8 @@
  */
 namespace Demo;
 
-use System\Storage\Register;
+use System\Storage\ConfigRegister;
+use System\Storage\CacheRegister;
 /**
  * 启动
  *
@@ -29,10 +30,10 @@ use System\Storage\Register;
  */
 class Bootstrap extends \System\Mvc\Bootstrap {
 	protected function _initRegister() {
-		Register::setConfig ( $this->_config );
+		ConfigRegister::setConfig ( $this->_config );
 	}
 	protected function _initCache() {
-		Register::setCache ( new Modules\Cache\HtmlCache ( $this->_config ['cache'] ['cacheDir'], $this->_config ['cache'] ['cachePrefix'], $this->_config ['cache'] ['cacheExpire'], $this->_config ['cache'] ['cacheMode'], '.html' ) );
+		CacheRegister::setCache ( new Modules\Cache\HtmlCache ( $this->_config ['cache'] ['cacheDir'], $this->_config ['cache'] ['cachePrefix'], $this->_config ['cache'] ['cacheExpire'], $this->_config ['cache'] ['cacheMode'], '.html' ) );
 	}
 }
 

@@ -13,7 +13,7 @@
 namespace System\Event\Error;
 
 use System\Event as Event;
-use System\Storage\Register;
+use System\Storage\ConfigRegister;
 
 /**
  * exception
@@ -168,7 +168,7 @@ class Handler implements Event\EventInterface, Event\ListenerInterface {
 		echo $table;
 	}
 	public function eventLog() {
-		$config = Register::getConfig ();
+		$config = ConfigRegister::getConfig ();
 		if (! isset ( $config ['log'] ))
 			return;
 		$logPath = isset ( $config ['log'] ['logPath'] ) ? $config ['log'] ['logPath'] : '/var/log/' . APP_DIR . '.log';

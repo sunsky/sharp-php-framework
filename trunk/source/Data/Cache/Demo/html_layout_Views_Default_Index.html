@@ -1,100 +1,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
-<title>layout</title>
+<title>Hello world!</title>
 <style type="text/css">
+*{
+	font-family:'微软雅黑';
+}
 .header{
 	height:20px;
 	line-height:20px;
-	background:#gray;	
+	background:skyblue;	
+	font-family:'方正粗宋简体','微软雅黑';
+	margin:0 auto;
+	text-align:center;
+}
+.content{
+	background:#E6E6FA;
 }
 .footer{
 	height:20px;
 	line-height:20px;
-	background:#gray;
+	background:skyblue;
+	font-family:'方正粗宋简体','微软雅黑';
+	text-align:center;
+}
+.error-console{
+	border:1px solid gray;
+	background: lightsteelblue;
 }
 </style>
 </head>
 <body>
-<div class="header">header</div><b>View from Layout :</b><br/>
-<div class="content" alt="content内容">
+<div class="header">通用头部</div><b>View from Layout :</b><br/>
+<div class="content">
 	<h1>Hello world!--页面</h1>
 <pre>
 <strong>$view:</strong>
-System\View\View Object
-(
-    [_controller:protected] => default
-    [_action:protected] => index
-    [_viewPath:protected] => /var/www/mini-php-framework/trunk/source/Apps/Demo/Views/Default/Index.php
-    [_viewDir:protected] => Views
-    [_layout:protected] => System\View\Helper\Layout Object
-        (
-            [_layoutFile:protected] => /var/www/mini-php-framework/trunk/source/Apps/Demo/Layouts/Main.php
-            [view:protected] => System\View\View Object
- *RECURSION*
-        )
-
-    [content] => 
-    [_config] => Array
-        (
-            [router] => Array
-                (
-                    [layoutDirPath] => /var/www/mini-php-framework/trunk/source/Apps/Demo/Layouts
-                )
-
-        )
-
-    [title] => Hello world!
-    [name] => Hello world!--页面
-)
 </pre>
-
-<strong><a href="http://mini-php-framework.com/?_a=show">跳转到Show页面</a></strong>
+<img src="Assets/image/hello_world.png" />
+<br/>
+<strong><a href="?_a=show">跳转到Show页面</a></strong>
 
 <pre>
-<strong>配置:</strong>
-Array
-(
-    [version] => 2.0 Beta
-    [app_name] => 精简PHP框架(linux php-fpm(php5.4) nginx mysqli)
-    [router] => Array
-        (
-            [controllerDir] => Controllers
-            [viewDir] => Views
-            [controllerPrefix] => _c
-            [actionPrefix] => _a
-            [defaultController] => default
-            [defaultAction] => index
-            [controllerClassSuffix] => Controller
-            [actionClassSuffix] => Action
-            [layoutDirPath] => /var/www/mini-php-framework/trunk/source/Apps/Demo/Layouts
-        )
-
-    [exception] => Array
-        (
-            [exceptionHandler] => Demo\Modules\Event\ExceptionHandler
-            [eventHandler] => Demo\Modules\Event\Handler
-        )
-
-    [log] => Array
-        (
-            [logPath] => /var/tmp/Demo.log
-            [mailAddr] => sunsky303@qq.com
-        )
-
-    [cache] => Array
-        (
-            [cacheDir] => /var/www/mini-php-framework/trunk/source/Data/Cache/Demo
-            [cachePrefix] => html_
-            [cacheExpire] => -1
-            [cacheMode] => 3
-        )
-
-)
+<!-- <strong>配置:</strong> -->
 </pre>
 </div>
-<div class="footer">footer</div>
+<div class="footer">通用尾部</div>
 </body>
 </html>
 

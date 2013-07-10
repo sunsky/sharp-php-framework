@@ -12,9 +12,12 @@
 <pre>
 <!-- <strong>配置:</strong> -->
 <?php 
+
+
+
 echo $aa;
 echo $ab;
 // notDefinedFunc();
-// throw new \System\Event\Exception\Exception('View中异常测试...');
+// throw new \SF\Event\Exception\Exception('View中异常测试...');
 ?>
 </pre>

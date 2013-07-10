@@ -4,7 +4,7 @@ namespace Demo\Controllers;
  * @author wuqj
  *        
  */
-class ErrorController extends  \System\Controller\Controller {
+class ErrorController extends  \SF\Controller\Controller {
 	/**
 	 */
 	function __construct($controller, $action) {

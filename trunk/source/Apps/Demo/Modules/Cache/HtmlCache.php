@@ -25,7 +25,7 @@ namespace Demo\Modules\Cache;
  * @copyright Copyright 2012-2013
  * @link https://mini-php-framework.googlecode.com/
  */
-class HtmlCache extends \System\Cache\Cache{
+class HtmlCache extends \SF\Cache\Cache{
 	
 }
 

@@ -1,11 +1,11 @@
 <?php
 namespace Demo\Controllers;
-use System\Storage\Register;
+use SF\Storage\Register;
 /**
  * @author wuqj
  *        
  */
-class DefaultController extends  \System\Controller\Controller {
+class DefaultController extends  \SF\Controller\Controller {
 	/**
 	 */
 	function __construct($controller, $action) {
@@ -28,4 +28,3 @@ class DefaultController extends  \System\Controller\Controller {
 	
 	
 }
-
